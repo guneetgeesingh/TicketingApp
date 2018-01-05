@@ -6,8 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require("compression");
 
-var seed = require('./routes/seed')
+var seed = require('./routes/seed');
 var users = require('./routes/users'); 
+var shows = require('./routes/shows');
+
 
 var app = express();
 app.use(compression());
@@ -26,6 +28,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/seed', seed)
 app.use('/api/users', users)
+app.use('/api/shows', shows)
 
 module.exports = app;
 

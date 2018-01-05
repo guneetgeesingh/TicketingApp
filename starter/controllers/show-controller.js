@@ -1,3 +1,6 @@
+var {Show} = require('../models/show')
+var _ = require("lodash");
+
 
 function index(req, res) {
 
