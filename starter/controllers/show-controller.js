@@ -3,6 +3,21 @@ var _ = require("lodash");
 
 
 function index(req, res) {
+  Show.find().exec(function (err, shows){
+    if (err) {
+      res.status(500).json({
+        errorMessage : `couldn't find show because `
+      })
+      return;
+    }else if (shows.length == 0){
+      res.status(404).json({
+        errorMessage:"No shows found"
+      })
+      return;
+    }else {
+      res.status(200).json(show)
+    }
+  })
 
 }
 
